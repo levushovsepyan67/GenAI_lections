@@ -1,4 +1,4 @@
-[![codecov](https://codecov.io/gh/levushovsepyan67/GenAI_lections/branch/main/graph/badge.svg)](https://codecov.io/gh/levushovsepyan67/GenAI_lections)
+![Coverage](./coverage.svg)
 
 GenAI / LLM COURSE MATERIALS
 

@@ -23,9 +23,17 @@ jobs:
         run: |
             cd 3_1_LLM_agent
             pytest tests/test_fallback_model.py --cov=llm_agent.fallback_model --cov-report=xml --
+      - name: Generate coverage badge
+        run: |
+            pip install coverage-badge
+            cd 3_1_LLM_agent
+            coverage-badge -o coverage.svg -f
+            mv coverage.svg ../
 
-      - name: Upload coverage to Codecov
-        uses: codecov/codecov-action@v3
-        with:
-            files: 3_1_LLM_agent/coverage.xml
-            fail_ci_if_error: false
+      - name: Commit and push coverage badge
+        run: |
+            git config --global user.name "github-actions[bot]"
+            git config --global user.email "github-actions[bot]@users.noreply.github.com"
+            git add coverage.svg
+            git commit -m "chore: update coverage badge" || echo "No changes"
+            git push origin main
