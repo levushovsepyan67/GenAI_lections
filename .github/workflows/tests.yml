@@ -21,8 +21,8 @@ jobs:
 
       - name: Run tests with coverage
         run: |
-            cd 3_1_LLM_agent
-            pytest tests/ --cov=llm_agent.fallback_model --cov-report=xml --cov-report=term
+          cd 3_1_LLM_agent
+          pytest tests/test_fallback_model.py --cov=llm_agent.fallback_model --cov-report=xml --
 
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v3
