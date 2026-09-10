@@ -27,5 +27,5 @@ jobs:
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v3
         with:
-            files: ./3_1_LLM_agent/coverage.xml
+            files: 3_1_LLM_agent/coverage.xml
             fail_ci_if_error: false
