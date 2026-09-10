@@ -1,7 +1,7 @@
 import pytest
 import requests
 from unittest.mock import patch, MagicMock
-from fallback_model import FallbackModel
+from llm_agent.fallback_model import FallbackModel
 
 def _test_openrouter_success(model, messages):
     """Тест 1: Успешный запрос к OpenRouter (Ollama не вызывается)"""
