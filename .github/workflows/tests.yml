@@ -23,11 +23,12 @@ jobs:
         run: |
             cd 3_1_LLM_agent
             pytest tests/test_fallback_model.py --cov=llm_agent.fallback_model --cov-report=xml --
+
       - name: Generate coverage badge
         run: |
             pip install coverage-badge
             cd 3_1_LLM_agent
-            coverage-badge -o coverage.svg -f
+            COVERAGE_FILE=$(pwd)/.coverage coverage-badge -o coverage.svg -f
             mv coverage.svg ../
 
       - name: Commit and push coverage badge
