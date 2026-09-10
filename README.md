@@ -2,4 +2,4 @@ GenAI / LLM COURSE MATERIALS
 
 CC BY / MIT LICENSE
 
-![Coverage](./coverage.svg)
+[![codecov](https://codecov.io/gh/levushovsepyan67/GenAI_lections/branch/main/graph/badge.svg)](https://codecov.io/gh/levushovsepyan67/GenAI_lections)
