@@ -29,15 +29,20 @@ jobs:
         with:
           files: ./coverage.xml
           fail_ci_if_error: false
+          
       - name: Generate coverage badge
         run: |
-            pip install coverage-badge
-            coverage-badge -o coverage.svg -f
+          pip install coverage-badge
+          # Переходим в папку, где лежит файл .coverage после тестов
+          cd 3_1_LLM_agent
+          coverage-badge -o coverage.svg -f
+          # Перемещаем готовый бейджик в корень репозитория
+          mv coverage.svg ../
 
       - name: Commit coverage badge
         run: |
-            git config --global user.name "github-actions[bot]"
-            git config --global user.email "github-actions[bot]@users.noreply.github.com"
-            git add coverage.svg
-            git commit -m "chore: auto-update coverage badge" || echo "No changes to commit"
-            git push origin main
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add coverage.svg
+          git commit -m "chore: auto-update coverage badge" || echo "No changes to commit"
+          git push origin main
