@@ -53,4 +53,5 @@ jobs:
     - name: Run integration test
       run: |
         cd 3_1_LLM_agent
-        python test_my_code.py
+        python test_my_model.py
+        
