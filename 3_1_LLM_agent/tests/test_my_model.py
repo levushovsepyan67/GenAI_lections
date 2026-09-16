@@ -1,10 +1,21 @@
+import pytest
 import sys
 import os
 
-# Добавляем путь к модулю llm_agent
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), 'llm_agent'))
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '../llm_agent')))
 
 from fallback_model import FallbackModel
+
+# Проверка доступности Ollama
+def is_ollama_available():
+    try:
+        import requests
+        r = requests.get("http://localhost:11434/api/tags", timeout=5)
+        return r.status_code == 200
+    except:
+        return False
+
+ollama_available = is_ollama_available()
 
 def test_ollama_only():
     """

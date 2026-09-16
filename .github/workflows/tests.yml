@@ -36,3 +36,21 @@ jobs:
         flags: unittests
         name: codecov-umbrella
         fail_ci_if_error: false
+    
+    - name: Install Ollama
+      run: |
+        curl -fsSL https://ollama.com/install.sh | sh
+    
+    - name: Start Ollama
+      run: |
+        ollama serve &
+        sleep 10
+    
+    - name: Pull model
+      run: |
+        ollama pull qwen2.5:0.5b
+    
+    - name: Run integration test
+      run: |
+        cd 3_1_LLM_agent
+        python test_my_code.py
